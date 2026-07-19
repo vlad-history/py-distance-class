@@ -20,16 +20,14 @@ class Distance:
             self.km += other.km
         elif isinstance(other, (int, float)):
             self.km += other
-        else:
-            raise TypeError
         return self
 
-    def __mul__(self, other: Distance | int) -> Distance:
+    def __mul__(self, other: int | float) -> Distance:
         if isinstance(other, (int, float)):
             return Distance(self.km * other)
         raise TypeError
 
-    def __truediv__(self, other: Distance | int) -> Distance:
+    def __truediv__(self, other: int | float) -> Distance:
         if isinstance(other, (int, float)):
             rounded_result = round(self.km / other, 2)
             return Distance(rounded_result)
